@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{885E0EF9-C326-4466-85FD-F9ECDA47DEDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{885E0EF9-C326-4466-85FD-F9ECDA47DEDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer.API", "IdentityServer.API\IdentityServer.API.csproj", "{54B805CA-DFE5-4DEB-A750-59CD779C3498}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer.API", "IdentityServer.API\IdentityServer.API.csproj", "{54B805CA-DFE5-4DEB-A750-59CD779C3498}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer.Client", "IdentityServer.Client\IdentityServer.Client.csproj", "{6E1E32FB-AF4F-4AE2-A765-A8EC6CAE3F55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer.Client", "IdentityServer.Client\IdentityServer.Client.csproj", "{6E1E32FB-AF4F-4AE2-A765-A8EC6CAE3F55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentiyServer.MVC", "IdentiyServer.MVC\IdentiyServer.MVC.csproj", "{36DB33EC-5354-4AEB-A086-6836841F3769}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{6E1E32FB-AF4F-4AE2-A765-A8EC6CAE3F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E1E32FB-AF4F-4AE2-A765-A8EC6CAE3F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E1E32FB-AF4F-4AE2-A765-A8EC6CAE3F55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36DB33EC-5354-4AEB-A086-6836841F3769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36DB33EC-5354-4AEB-A086-6836841F3769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36DB33EC-5354-4AEB-A086-6836841F3769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36DB33EC-5354-4AEB-A086-6836841F3769}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

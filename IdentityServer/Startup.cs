@@ -14,6 +14,7 @@ namespace IdentityServer
 
             services.AddIdentityServer() //registers the IdentityServer services in DI. It also registers an in-memory store for runtime state. This is useful for development scenarios.
                 .AddDeveloperSigningCredential() //extension creates temporary key material for signing tokens. Again this might be useful to get started, but needs to be replaced by some persistent key material for production scenarios.
+                .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
                 .AddTestUsers(TestUsers.Users);
