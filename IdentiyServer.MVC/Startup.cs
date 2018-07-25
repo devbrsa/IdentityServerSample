@@ -50,7 +50,15 @@ namespace IdentiyServer.MVC
                 options.RequireHttpsMetadata = false;
 
                 options.ClientId = "mvc"; //We then identify this client via the ClientId
+                options.ClientSecret = "secret";
+                options.ResponseType = "code id_token";
+
                 options.SaveTokens = true; //SaveTokens is used to persist the tokens from IdentityServer in the cookie
+                options.GetClaimsFromUserInfoEndpoint = true;
+
+                options.Scope.Add("api1");
+                options.Scope.Add("brunoArruda");
+                options.Scope.Add("offline_access");
             }
             );
         }

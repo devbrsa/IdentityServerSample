@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace IdentiyServer.MVC.Controllers
@@ -23,11 +25,17 @@ namespace IdentiyServer.MVC.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public async Task<IActionResult> Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
 
-            return View();
+            var client = new HttpClient();
+            client.SetBearerToken(accessToken);
+
+            var content = await client.GetStringAsync("http://localhost:5001/identity");
+
+            ViewBag.Json = JArray.Parse(content).ToString();
+            return View("Json");
         }
 
         public IActionResult Privacy()
