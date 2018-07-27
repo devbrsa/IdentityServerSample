@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace IdentiyServer.MVC
 {
@@ -32,7 +26,7 @@ namespace IdentiyServer.MVC
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();//.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); //we’ve turned off the JWT claim type mapping to allow well-known claims (e.g. ‘sub’ and ‘idp’) to flow through unmolested
 
@@ -46,7 +40,7 @@ namespace IdentiyServer.MVC
             {
                 options.SignInScheme = "Cookies"; //SignInScheme is used to issue a cookie using the cookie handler once the OpenID Connect protocol is complete.
 
-                options.Authority = "http://localhost:5000"; //The Authority indicates that we are trusting IdentityServer. 
+                options.Authority = "https://localhost:5000"; //The Authority indicates that we are trusting IdentityServer. 
                 options.RequireHttpsMetadata = false;
 
                 options.ClientId = "mvc"; //We then identify this client via the ClientId
@@ -75,7 +69,7 @@ namespace IdentiyServer.MVC
                 app.UseHsts();
             }
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseAuthentication();
 
             app.UseStaticFiles();
