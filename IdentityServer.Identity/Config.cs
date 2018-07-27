@@ -21,54 +21,27 @@ namespace IdentityServer
         {
             return new List<Client>
             {
-                new Client
-                {
-                    ClientId = "client",
-
-                    // no interactive user, use the clientid/secret for authentication
-                    AllowedGrantTypes = GrantTypes.ClientCredentials,
-
-                    // secret for authentication
-                    ClientSecrets =
-                    {
-                        new Secret("secret".Sha256())
-                    },
-
-                    // scopes that client has access to
-                    AllowedScopes = { "api1", "api2" }
-                },
-                new Client
-                {
-                    ClientId = "ro.client",
-
-                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-                    ClientSecrets =
-                    {
-                        new Secret("secret".Sha256())
-                    },
-                    AllowedScopes = { "api1", "api2" }
-                },
-                // OpenID Connect implicit flow client (MVC)
-               new Client
+              new Client
                 {
                     ClientId = "mvc",
                     ClientName = "MVC Client",
                     AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
 
+                    RequireConsent = true,
+
                     ClientSecrets =
                     {
                         new Secret("secret".Sha256())
                     },
 
-                    RedirectUris = { "https://localhost:5002/signin-oidc" },
-                    PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" },
+                    RedirectUris = { "http://localhost:5002/signin-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
 
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                        "api1",
-                        "brunoArruda"
+                        "api1"
                     },
                     AllowOfflineAccess = true
                 }

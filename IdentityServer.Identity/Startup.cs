@@ -44,7 +44,7 @@ namespace IdentityServer.Identity
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(); //.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddIdentityServer(options => {
                 options.UserInteraction.LoginUrl = "/Identity/Account/Login";
@@ -71,18 +71,13 @@ namespace IdentityServer.Identity
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+            //app.UseCookiePolicy();
 
             app.UseIdentityServer();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
