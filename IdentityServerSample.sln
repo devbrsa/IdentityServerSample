@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer.Client", "Id
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentiyServer.MVC", "IdentiyServer.MVC\IdentiyServer.MVC.csproj", "{36DB33EC-5354-4AEB-A086-6836841F3769}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer.Identity", "IdentityServer.Identity\IdentityServer.Identity.csproj", "{F40ED34C-0D2D-4708-87EF-025D57C90E84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer.Identity", "IdentityServer.Identity\IdentityServer.Identity.csproj", "{5DF4ECC3-04FD-45DA-9B85-60CF52C9DABF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{36DB33EC-5354-4AEB-A086-6836841F3769}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36DB33EC-5354-4AEB-A086-6836841F3769}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36DB33EC-5354-4AEB-A086-6836841F3769}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F40ED34C-0D2D-4708-87EF-025D57C90E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F40ED34C-0D2D-4708-87EF-025D57C90E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F40ED34C-0D2D-4708-87EF-025D57C90E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F40ED34C-0D2D-4708-87EF-025D57C90E84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DF4ECC3-04FD-45DA-9B85-60CF52C9DABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DF4ECC3-04FD-45DA-9B85-60CF52C9DABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DF4ECC3-04FD-45DA-9B85-60CF52C9DABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DF4ECC3-04FD-45DA-9B85-60CF52C9DABF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

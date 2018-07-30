@@ -40,8 +40,8 @@ namespace IdentiyServer.MVC
             {
                 options.SignInScheme = "Cookies"; //SignInScheme is used to issue a cookie using the cookie handler once the OpenID Connect protocol is complete.
 
-                options.Authority = "http://localhost:5000"; //The Authority indicates that we are trusting IdentityServer. 
-                options.RequireHttpsMetadata = false;
+                options.Authority = "https://localhost:5000"; //The Authority indicates that we are trusting IdentityServer. 
+                options.RequireHttpsMetadata = true;
 
                 options.ClientId = "mvc"; //We then identify this client via the ClientId
                 options.ClientSecret = "secret";
@@ -50,8 +50,7 @@ namespace IdentiyServer.MVC
                 options.SaveTokens = true; //SaveTokens is used to persist the tokens from IdentityServer in the cookie
                 options.GetClaimsFromUserInfoEndpoint = true;
 
-                options.Scope.Add("api1");
-                options.Scope.Add("brunoArruda");
+                options.Scope.Add("api1");                
                 options.Scope.Add("offline_access");
             }
             );
@@ -69,7 +68,7 @@ namespace IdentiyServer.MVC
                 app.UseHsts();
             }
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseAuthentication();
 
             app.UseStaticFiles();

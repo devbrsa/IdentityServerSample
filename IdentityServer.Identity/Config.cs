@@ -1,27 +1,40 @@
 ﻿using IdentityServer4;
 using IdentityServer4.Models;
-using IdentityServer4.Test;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace IdentityServer
+namespace IdentityServer.Identity
 {
     public class Config
     {
+        // scopes define the resources in your system
+        public static IEnumerable<IdentityResource> GetIdentityResources()
+        {
+            return new List<IdentityResource>
+            {
+                new IdentityResources.OpenId(),
+                new IdentityResources.Profile(),
+            };
+        }
+
         public static IEnumerable<ApiResource> GetApiResources()
         {
             return new List<ApiResource>
             {
-                new ApiResource("api1","My API"),
-                new ApiResource("api2","My API 2"),
-                new ApiResource("brunoArruda", "Bruno Arruda")
+                new ApiResource("api1", "My API")
             };
         }
 
+        // clients want to access resources (aka scopes)
         public static IEnumerable<Client> GetClients()
         {
+            // client credentials client
             return new List<Client>
             {
-              new Client
+                // OpenID Connect hybrid flow and client credentials client (MVC)
+                new Client
                 {
                     ClientId = "mvc",
                     ClientName = "MVC Client",
@@ -34,8 +47,8 @@ namespace IdentityServer
                         new Secret("secret".Sha256())
                     },
 
-                    RedirectUris = { "http://localhost:5002/signin-oidc" },
-                    PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+                    RedirectUris = { "https://localhost:5002/signin-oidc" },
+                    PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" },
 
                     AllowedScopes =
                     {
@@ -45,34 +58,6 @@ namespace IdentityServer
                     },
                     AllowOfflineAccess = true
                 }
-            };
-        }
-
-        public static List<TestUser> GetUsers()
-        {
-            return new List<TestUser>
-            {
-                new TestUser
-                {
-                    SubjectId = "1",
-                    Username = "alice",
-                    Password = "password"
-                },
-                new TestUser
-                {
-                    SubjectId = "2",
-                    Username = "bob",
-                    Password = "password"
-                }
-            };
-        }
-
-        public static IEnumerable<IdentityResource> GetIdentityResources()
-        {
-            return new List<IdentityResource>
-            {
-                new IdentityResources.OpenId(),
-                new IdentityResources.Profile()
             };
         }
     }
