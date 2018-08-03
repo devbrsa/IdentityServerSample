@@ -241,6 +241,18 @@ namespace Identity.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Show logout page
+        /// </summary>
+        [HttpGet]
+        public async Task<IActionResult> Logout(string logoutId)
+        {
+            // build a model so the logout page knows what to display
+            await _signInManager.SignOutAsync();
+            _logger.LogInformation("User logged out.");
+            return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
